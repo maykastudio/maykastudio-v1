@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title %></title>
+    <%= stylesheet_link_tag    'application', :media => 'all' %>
+    <%= javascript_include_tag 'public/application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="header navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to 'Блог', root_path, :class => 'navbar-brand' %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-profile">
+          <% if user_signed_in? %>
+
+            <li class="dropdown profile">
+              <%= link_to '#', :class => 'dropdown-toggle', :data => { :toggle => :dropdown } do %>
+                <%= image_tag current_user.gravatar_url %>
+                <%= current_user.login %>
+              <% end %>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Выход', destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            </li>
+
+          <% else %>
+            <li class="sign-in" role="presentation"><%= link_to 'Вход', new_user_session_path %></li>
+            <li class="sign-up" role="presentation"><%= link_to 'Регистрация', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
