@@ -1,18 +1,16 @@
-<h3 class="title">
-  <%= link_to 'Все галереи', admin_gallery_index_path %> /
-  <%= link_to @gallery, admin_gallery_path(@gallery) %> /
-  Редактирование изображения
-</h3>
-
 <div class="row">
+  <div class="title col-lg-12">
+    Редактирование изображения
+  </div>
+
   <div class="col-lg-9">
-    <%= simple_form_for([:admin, @gallery, @image]) do |f| %>
+    <%= simple_form_for([:manage, @gallery, @image]) do |f| %>
       <%= f.input :title %>
       <%= f.input :alt %>
       <%= f.input :description %>
 
       <%= f.submit 'Сохранить', :class => 'btn btn-primary btn-sm' %>
-      <%= link_to 'Отмена', admin_gallery_path(@gallery), :class => 'btn btn-default btn-sm' %>
+      <%= link_to 'Отмена', manage_gallery_path(@gallery), :class => 'btn btn-default btn-sm' %>
     <% end %>
   </div>
 
@@ -20,4 +18,3 @@
     <%= render @image %>
   </div>
 </div>
-
