@@ -1,0 +1,19 @@
+<div class="thumbnail">
+  <%= image_tag image.file.thumb.url %>
+  <ul class="info">
+    <li class="truncated">
+      <strong>Название:</strong> <%= image.title? ? image.title : 'не задано' %>
+    </li>
+    <li class="truncated">
+      <strong>ALT-тег:</strong> <%= image.alt? ? image.alt : 'не задано' %>
+    </li>
+    <li class="truncated">
+      <strong>Описание:</strong> <%= image.description? ? image.description : 'не задано' %>
+    </li>
+    <li class="actions">
+      <%= link_to 'Изменить', edit_manage_gallery_image_path(@gallery, image), :class => 'btn btn-default btn-xs' %>
+      <%= link_to 'Удалить', manage_gallery_image_path(@gallery, image), :method => :delete, :class => 'btn btn-danger btn-xs' %>
+    </li>
+  </ul>
+</div>
+

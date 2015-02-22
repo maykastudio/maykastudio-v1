@@ -1,5 +1,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/dropdown
-//= require public/main
+//= require dropzone
 //= require_tree .

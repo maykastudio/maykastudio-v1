@@ -1,3 +1,15 @@
 ru:
-  cancan:
-    access_denied: Доступ запрещен!
+  site_name: Майкастудия
+
+  activerecord:
+    attributes:
+      gallery:
+        title: Название
+        description: Описание
+        image: Изображение
+
+      image:
+        title: Название
+        alt: Содержание тега-ALT
+        description: Описание
+        file: Изображение

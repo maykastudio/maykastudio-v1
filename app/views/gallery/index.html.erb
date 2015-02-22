@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="gallery">
+    <% if @collection.any? %>
+      <% @collection.each_with_index do |gallery, index| %>
+        <% if index == 0 %>
+          <div class="col-lg-9 gallery-main">
+            <%= link_to (image_tag gallery.image.main.url), gallery_path(gallery) %>
+            <div class="caption">
+              <%= link_to gallery, gallery_path(gallery) %>
+            </div>
+          </div>
+            <% gallery.images.limit(3).each do |image| %>
+          <div class="col-lg-3 gallery-thumb">
+              <%= link_to (image_tag image.file.thumb.url), gallery_path(gallery) %>
+          </div>
+            <% end %>
+        <% else %>
+          <div class="col-lg-6 gallery-medium">
+            <%= link_to (image_tag gallery.image.medium.url), gallery_path(gallery) %>
+            <div class="caption">
+              <%= link_to gallery, gallery_path(gallery) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="empty">Еще нет ни одной галереи</div>
+    <% end %>
+  </div>
+</div>

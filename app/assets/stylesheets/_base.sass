@@ -1,0 +1,87 @@
+body
+  background: #efefef
+
+.header
+  +border-radius(0px)
+  background: #fff
+  border: none
+  border-bottom: 8px solid #43aa76
+  height: 70px
+  margin: 30px auto
+
+  .navbar-nav
+    margin: 6px 10px
+
+.content
+
+.footer
+  color: #999
+  height: 50px
+  margin: 30px auto
+  padding: 15px 0
+
+.title
+  margin: 20px 0
+
+.add-gallery
+  float: right
+  margin: 18px 0 0 0
+
+.empty
+  color: #999
+  font-size: 18px
+
+.truncated
+  overflow: hidden
+  text-overflow: ellipsis
+  vertical-align: top
+  white-space: nowrap
+
+.gallery
+  .caption
+    +transition(background 0.3s ease, border-color 0.3s ease)
+    background: rgba(255,255,255, 0.25)
+    bottom: 20px
+    left: 35px
+    padding: 10px
+    position: absolute
+
+    &:hover
+      background: rgba(0,0,0, 0.25)
+
+    a
+      color: #fff
+      font-weight: 300
+
+      &:hover
+        text-decoration: none
+
+  .gallery-main, .gallery-medium, .gallery-thumb
+    display: block
+    overflow: hidden
+
+    img
+      height: 100%
+      width: 100%
+
+    a
+      display: block
+      overflow: hidden
+
+  .gallery-main
+    position: relative
+    margin: 0 0 10px 0
+
+    .caption > a
+      font-size: 30px
+      line-height: 40px
+
+  .gallery-medium
+    margin: 10px 0 0 0
+
+    .caption > a
+      font-size: 20px
+      line-height: 30px
+
+  .gallery-thumb
+    margin: 0 0 20px 0

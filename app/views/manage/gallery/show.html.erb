@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="images col-lg-9">
+    <% if @gallery.images.any? %>
+      <% @gallery.images.each do |image| %>
+        <div class="col-lg-3">
+          <%= render image %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="empty">В галереи еще нет ни одной фотографии</div>
+    <% end %>
+  </div>
+
+  <div class="js-images col-lg-3">
+    <%= simple_form_for([:manage, @gallery, @gallery.images.new], :html => { :multipart => true, :class => 'dropzone js-dropzone' }) do |f| %>
+      <%= f.input :file, :as => :hidden, :input_html => { :multiple => true, :name => 'image[file]' }, :wrapper_html => { :class => :failback } %>
+    <% end %>
+  </div>
+</div>

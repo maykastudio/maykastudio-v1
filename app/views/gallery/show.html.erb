@@ -1,0 +1,18 @@
+<h3 class="title">
+  <%= link_to 'Все галереи', gallery_index_path %> /
+  <%= @gallery %>
+</h3>
+
+<div class="row">
+  <div class="images col-lg-12">
+    <% if @gallery.images.any? %>
+      <% @gallery.images.each do |image| %>
+        <div class="col-lg-3">
+          <%= render image %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="empty">В галереи еще нет ни одной фотографии</div>
+    <% end %>
+  </div>
+</div>

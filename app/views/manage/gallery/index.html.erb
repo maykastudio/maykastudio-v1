@@ -1,0 +1,35 @@
+<%= link_to 'Добавить новую галерею', new_manage_gallery_path, :class => 'btn btn-primary btn-sm add-gallery' %>
+
+<div class="row">
+  <div class="gallery col-lg-12">
+    <% if @collection.any? %>
+      <% @collection.each do |gallery| %>
+        <div class="col-lg-3">
+          <div class="thumbnail">
+            <h4 class="truncated">
+              <%= link_to gallery, manage_gallery_path(gallery) %>
+            </h4>
+
+            <div class="cover">
+              <% if gallery.image? %>
+                <%= link_to (image_tag gallery.image.thumb.url), manage_gallery_path(gallery) %>
+              <% else %>
+                <div class="stub">
+                  нет изображения
+                </div>
+              <% end %>
+            </div>
+
+            <div class="actions">
+              <%= link_to 'Изменить', edit_manage_gallery_path(gallery), :class => 'btn btn-default btn-xs' %>
+              <%= link_to 'Удалить', manage_gallery_path(gallery), :method => :delete, :class => 'btn btn-danger btn-xs' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="empty">Еще нет ни одной галереи</div>
+    <% end %>
+  </div>
+</div>
+
