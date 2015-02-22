@@ -1,11 +1,6 @@
-<div class="thumbnail">
-  <%= image_tag image.file.thumb.url, :title => image.title? ? image.title : 'не задано', :alt => image.alt? ? image.alt : 'не задано'  %>
-  <ul class="info">
-    <li class="truncated">
-      <strong>Название:</strong> <%= image.title? ? image.title : 'не задано' %>
-    </li>
-    <li class="truncated">
-      <strong>Описание:</strong> <%= image.description? ? image.description : 'не задано' %>
-    </li>
-  </ul>
+<div class="item <%= carousel_active_class(index) %>">
+  <%= image_tag image.file.large.url, :title => image.title? ? image.title : 'не задано', :alt => image.alt? ? image.alt : 'не задано'  %>
+  <div class="carousel-caption">
+    <%= image.title? ? image.title : 'не задано' %>
+  </div>
 </div>

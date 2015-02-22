@@ -1,18 +1,33 @@
-<h3 class="title">
-  <%= link_to 'Все галереи', gallery_index_path %> /
-  <%= @gallery %>
-</h3>
-
 <div class="row">
+  <div class="title col-lg-12">
+    <%= @gallery %>
+  </div>
+
   <div class="images col-lg-12">
     <% if @gallery.images.any? %>
-      <% @gallery.images.each do |image| %>
-        <div class="col-lg-3">
-          <%= render image %>
+      <div id="gallery" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @gallery.images.each_with_index do |image, index| %>
+            <li data-target="#gallery" data-slide-to="<%= index %>" class="<%= carousel_active_class(index) %>"></li>
+          <% end %>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+          <% @gallery.images.each_with_index do |image, index| %>
+            <%= render :partial => 'images/image', :locals => { :image => image, :index => index } %>
+          <% end %>
         </div>
-      <% end %>
+
+        <%= link_to '#gallery', :class => 'left carousel-control', :role => :button, :data => { :slide => :prev } do %>
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <% end %>
+
+        <%= link_to '#gallery', :class => 'right carousel-control', :role => :button, :data => { :slide => :next } do %>
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <% end %>
+      </div>
     <% else %>
-      <div class="empty">В галереи еще нет ни одной фотографии</div>
+      <div class="empty">В альбоме &laquo;<%= @gallery %>&raquo; еще нет ни одной фотографии</div>
     <% end %>
   </div>
 </div>
