@@ -8,6 +8,7 @@ group :default do
   gem 'compass-rails'
   gem 'devise'
   gem 'dropzonejs-rails'
+  gem 'enumerize'
   gem 'friendly_id',                   '~> 5.1.0'
   gem 'gravtastic'
   gem 'inherited_resources',           '~> 1.6.0'

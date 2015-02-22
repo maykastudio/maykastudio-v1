@@ -1,4 +1,4 @@
-class Manage::GalleryController < ApplicationController
+class Manage::GalleryController < Manage::ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index

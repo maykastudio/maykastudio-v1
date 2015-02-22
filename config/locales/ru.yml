@@ -1,4 +1,7 @@
 ru:
+  cancan:
+    access_denied: Доступ запрещен
+
   site_name: Майкастудия
 
   activerecord:

@@ -1,4 +1,4 @@
-class Manage::ImagesController < ApplicationController
+class Manage::ImagesController < Manage::ApplicationController
   inherit_resources
 
   belongs_to :gallery
