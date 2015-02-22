@@ -14,6 +14,27 @@
             <%= link_to t('site_name'), root_path, :class => 'navbar-brand' %>
           </li>
         </ul>
+        <ul class="nav navbar-nav navbar-right navbar-profile">
+          <% if user_signed_in? %>
+
+            <li class="dropdown profile">
+              <%= link_to '#', :class => 'dropdown-toggle', :data => { :toggle => :dropdown } do %>
+                <%= image_tag current_user.gravatar_url %>
+                <%= current_user.email %>
+              <% end %>
+              <ul class="dropdown-menu">
+                <% if can? :manage, :all %>
+                  <li><%= link_to 'Управление', manage_root_path %></li>
+                <% end %>
+                <li><%= link_to 'Выход', destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            </li>
+
+          <% else %>
+            <li class="sign-in" role="presentation"><%= link_to 'Вход', new_user_session_path %></li>
+            <li class="sign-up" role="presentation"><%= link_to 'Регистрация', new_user_registration_path %></li>
+          <% end %>
+        </ul>
       </div>
 
       <div class="content">
