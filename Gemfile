@@ -13,6 +13,7 @@ group :default do
   gem 'gravtastic'
   gem 'inherited_resources',           '~> 1.6.0'
   gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'pg'
   gem 'rails',                         '~> 4.2.0'
   gem 'rmagick'

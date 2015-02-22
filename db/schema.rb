@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150221052126) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "galleries", force: :cascade do |t|
     t.string   "title"
     t.string   "slug"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150221052126) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id"
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150221052126) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "permissions", ["user_id"], name: "index_permissions_on_user_id"
+  add_index "permissions", ["user_id"], name: "index_permissions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -68,9 +71,11 @@ ActiveRecord::Schema.define(version: 20150221052126) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "images", "galleries"
+  add_foreign_key "permissions", "users"
 end

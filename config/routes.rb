@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :gallery do
-      resources :images, :except => [:index, :show]
+      resources :images, :except => [:index, :show] do
+        post 'sort' => 'images#sort', :on => :collection, :as => :sort
+      end
     end
 
     root :to => 'gallery#index'

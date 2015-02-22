@@ -3,6 +3,7 @@ class Manage::ImagesController < Manage::ApplicationController
 
   belongs_to :gallery
   actions :all, :except => [:index, :show, :create]
+  custom_actions :collection => :sort
 
   def create
     @gallery = Gallery.find(params[:gallery_id])
@@ -14,7 +15,14 @@ class Manage::ImagesController < Manage::ApplicationController
         format.json { render :json => @image }
       end
     end
+  end
 
+  def sort
+    sort! {
+      @gallery.sort_images(params[:image])
+
+      render :nothing => true and return
+    }
   end
 
   private

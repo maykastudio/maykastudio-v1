@@ -1,9 +1,9 @@
 <div class="row">
   <div class="images">
-    <div class="col-lg-9">
+    <div class="col-lg-9 js-sortable js-connected-sortable" data-sort-url="<%= sort_manage_gallery_images_path(@gallery) %>">
       <% if @gallery.images.any? %>
         <% @gallery.images.each do |image| %>
-          <div class="col-lg-4">
+          <div class="col-lg-4" id="image_<%= image.id %>">
             <%= render image %>
           </div>
         <% end %>
