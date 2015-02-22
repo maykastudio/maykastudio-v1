@@ -18,6 +18,7 @@ group :default do
   gem 'rmagick'
   gem 'russian'
   gem 'sass-rails',                    '~> 5.0'
+  gem 'simple-navigation'
   gem 'simple_form'
   gem 'sqlite3'
   gem 'uglifier',                      '>= 1.3.0'

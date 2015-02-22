@@ -38,6 +38,10 @@ body
   font-size: 22px
   font-weight: 300
 
+  a
+    color: #333
+    font-weight: 300
+
 .add-gallery
   margin: 20px 0 0 0
 
@@ -55,6 +59,9 @@ body
   display: block
   margin: 30px 0 0 0
   overflow: hidden
+
+  &.manage
+    margin: 0
 
   .caption
     +transition(background 0.3s ease, border-color 0.3s ease)
@@ -77,7 +84,7 @@ body
       &:hover
         text-decoration: none
 
-  .gallery-main, .gallery-medium, .gallery-thumb
+  .gallery-main, .gallery-medium, .gallery-stub, .gallery-thumb
     display: block
     overflow: hidden
 
@@ -97,7 +104,7 @@ body
       font-size: 30px
       line-height: 40px
 
-  .gallery-medium
+  .gallery-medium, .gallery-stub
     margin: 10px 0 0 0
 
     .caption > a
@@ -106,6 +113,12 @@ body
 
   .gallery-thumb
     margin: 0 0 20px 0
+
+  .gallery-stub
+    background: #999
+    height: 370px
+    margin: 0
+    width: 555px
 
 .dropzone
   border: 1px solid #43aa76

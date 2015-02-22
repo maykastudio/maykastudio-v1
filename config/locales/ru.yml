@@ -16,3 +16,13 @@ ru:
         alt: Содержание тега-ALT
         description: Описание
         file: Изображение
+
+  page_title:
+    gallery:
+      index: Все альбомы
+      show: '%{title}'
+      edit: 'Редактирование альбома %{title}'
+      new: Добавление нового альбома
+
+    image:
+      edit: Редактирование изображения

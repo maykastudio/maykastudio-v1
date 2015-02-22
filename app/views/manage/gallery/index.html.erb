@@ -1,9 +1,16 @@
 <div class="row">
-  <div class="gallery">
+  <div class="gallery manage">
     <% if @collection.any? %>
       <% @collection.each do |gallery| %>
         <div class="col-lg-6 gallery-medium">
-          <%= link_to (image_tag gallery.image.medium.url), manage_gallery_path(gallery) %>
+          <%= link_to manage_gallery_path(gallery) do %>
+            <% if gallery.image? %>
+              <%= image_tag gallery.image.medium.url %>
+            <% else %>
+              <div class="gallery-stub">
+              </div>
+            <% end %>
+          <% end %>
 
           <div class="caption manage">
             <div class="col-lg-6">

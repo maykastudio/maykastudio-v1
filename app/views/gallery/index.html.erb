@@ -11,7 +11,7 @@
           </div>
             <% gallery.images.limit(3).each do |image| %>
           <div class="col-lg-3 gallery-thumb">
-              <%= link_to (image_tag image.file.thumb.url), gallery_path(gallery) %>
+            <%= link_to (image_tag image.file.thumb.url), gallery_path(gallery) %>
           </div>
             <% end %>
         <% else %>
