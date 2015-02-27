@@ -17,11 +17,11 @@ class Manage::GalleryController < Manage::ApplicationController
 
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to manage_gallery_path(@gallery), notice: 'Gallery was successfully created.' }
-        format.json { render :show, status: :created, location: @gallery }
+        format.html { redirect_to manage_gallery_path(@gallery), :notice => 'Альбом добавлен успешно!' }
+        format.json { render :show, :status => :created, :location => @gallery }
       else
         format.html { render :new }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render :json => @gallery.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -32,11 +32,11 @@ class Manage::GalleryController < Manage::ApplicationController
   def update
     respond_to do |format|
       if @gallery.update(gallery_params)
-        format.html { redirect_to manage_gallery_path(@gallery), notice: 'Gallery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gallery }
+        format.html { redirect_to manage_gallery_path(@gallery), :notice => 'Альбом сохранен.' }
+        format.json { render :show, :status => :ok, :location => @gallery }
       else
         format.html { render :edit }
-        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+        format.json { render :json => @gallery.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -44,7 +44,7 @@ class Manage::GalleryController < Manage::ApplicationController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to manage_gallery_index_path, notice: 'Gallery was successfully destroyed.' }
+      format.html { redirect_to manage_gallery_index_path, :notice => 'Альбом успешно удален!' }
       format.json { head :no_content }
     end
   end
@@ -55,6 +55,6 @@ class Manage::GalleryController < Manage::ApplicationController
     end
 
     def gallery_params
-      params.require(:gallery).permit(:title, :description, :image)
+      params.require(:gallery).permit(:title, :description, :image, :state)
     end
 end

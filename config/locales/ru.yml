@@ -10,12 +10,19 @@ ru:
         title: Название
         description: Описание
         image: Изображение
+        state: Публикация
 
       image:
         title: Название
         alt: Содержание тега-ALT
         description: Описание
         file: Изображение
+
+  enumerize:
+    gallery:
+      state:
+        draft:     Черновик
+        published: Опубликовано
 
   page_title:
     gallery:

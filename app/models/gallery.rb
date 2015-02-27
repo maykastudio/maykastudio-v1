@@ -4,7 +4,13 @@ class Gallery < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => [:slugged, :finders]
 
+  extend Enumerize
+  enumerize :state, :in => [:draft, :published], :default => :draft, :predicates => true
+
   has_many :images, -> { order(:position) }, :dependent => :destroy
+
+  scope :published, -> { where(:state => :published) }
+  scope :draft,     -> { where(:state => :draft) }
 
   validates_presence_of :title
 

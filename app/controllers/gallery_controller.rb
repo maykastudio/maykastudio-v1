@@ -1,6 +1,6 @@
 class GalleryController < ApplicationController
   def index
-    @collection = Gallery.limit(5)
+    @collection = Gallery.published
   end
 
   def show
