@@ -130,3 +130,34 @@ body
 
 .dropzone
   border: 1px solid #43aa76
+
+.ribbon
+  color: #fff
+  font-weight: 300
+  font-size: 12px
+  padding: 5px 10px
+  position: absolute
+  right: 9px
+  top: 7px
+
+  &:after
+    content: ''
+    width: 0
+    height: 0
+    position: absolute
+    right: 0
+    bottom: -6px
+    border-width: 3px 3px
+    border-style: solid
+
+  &.published
+    background: #8e44ad
+
+    &:after
+      border-color: #9b59b6 transparent transparent #9b59b6
+
+  &.draft
+    background: #7f8c8d
+
+    &:after
+      border-color: #95a5a6 transparent transparent #95a5a6

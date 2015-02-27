@@ -3,6 +3,8 @@
     <% if @collection.any? %>
       <% @collection.each do |gallery| %>
         <div class="col-lg-6 gallery-medium">
+          <div class="ribbon <%= gallery.state %>"><%= gallery.state_text %></div>
+
           <%= link_to manage_gallery_path(gallery) do %>
             <% if gallery.image? %>
               <%= image_tag gallery.image.medium.url %>

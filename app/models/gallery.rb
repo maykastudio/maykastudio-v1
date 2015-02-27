@@ -9,7 +9,7 @@ class Gallery < ActiveRecord::Base
 
   has_many :images, -> { order(:position) }, :dependent => :destroy
 
-  scope :published, -> { where(:state => :published) }
+  scope :published, -> { where(:state => :published).order(:created_at) }
   scope :draft,     -> { where(:state => :draft) }
 
   validates_presence_of :title
