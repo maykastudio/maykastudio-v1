@@ -27,6 +27,7 @@ end
 
 group :development do
   gem 'hirb'
+  gem 'quiet_assets'
   gem 'thin'
 end
 
