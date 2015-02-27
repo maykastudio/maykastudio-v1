@@ -16,7 +16,13 @@
             <% end %>
         <% else %>
           <div class="col-lg-6 gallery-medium">
-            <%= link_to (image_tag gallery.image.medium.url), gallery_path(gallery) %>
+            <%= link_to gallery_path(gallery) do %>
+              <% if gallery.image? %>
+                <%= image_tag gallery.image.medium.url %>
+              <% else %>
+                <div class="gallery-stub"></div>
+              <% end %>
+            <% end %>
             <div class="caption">
               <%= link_to gallery, gallery_path(gallery) %>
             </div>
