@@ -2,7 +2,7 @@ class Manage::GalleryController < Manage::ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   def index
-    @collection = Gallery.all
+    @collection = Gallery.order(:created_at)
   end
 
   def show
