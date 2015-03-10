@@ -21,13 +21,13 @@ group :default do
   gem 'sass-rails',                    '~> 5.0'
   gem 'simple-navigation'
   gem 'simple_form'
-  gem 'sqlite3'
   gem 'uglifier',                      '>= 1.3.0'
 end
 
 group :development do
   gem 'hirb'
   gem 'quiet_assets'
+  gem 'sqlite3'
   gem 'thin'
 end
 
