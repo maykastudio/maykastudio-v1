@@ -9,7 +9,6 @@
 /.capistrano
 /config/database.yml
 /config/deploy.yml
-/config/newrelic.yml
 /config/settings.yml
 /coverage/
 /db/*.sqlite3
