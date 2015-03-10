@@ -22,5 +22,9 @@ module Maykastudio
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_mailer.default_url_options = { :host => Rails.application.secrets['default_url_options'] }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = Rails.application.secrets['smtp']
   end
 end
