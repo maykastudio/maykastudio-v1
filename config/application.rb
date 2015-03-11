@@ -25,6 +25,5 @@ module Maykastudio
 
     config.action_mailer.default_url_options = { :host => Rails.application.secrets['default_url_options'] }
     config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = Rails.application.secrets['smtp']
   end
 end
