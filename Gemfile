@@ -24,16 +24,27 @@ group :default do
   gem 'uglifier',                      '>= 1.3.0'
 end
 
-group :development do
+group :development, :test do
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'spring'
+end
+
+group :development do
   gem 'hirb'
   gem 'quiet_assets'
-  gem 'sqlite3'
   gem 'thin'
 end
 
-group :development, :test do
-  gem 'spring'
+group :test do
+  gem 'capybara'
+  gem 'faker'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :production do
