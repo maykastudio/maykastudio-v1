@@ -25,6 +25,7 @@ group :default do
 end
 
 group :development do
+  gem 'dotenv-rails'
   gem 'hirb'
   gem 'quiet_assets'
   gem 'sqlite3'
