@@ -43,11 +43,11 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'codeclimate-test-reporter',     :require => nil
   gem 'faker'
   gem 'guard-rspec'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'simplecov'
 end
 
 group :production do

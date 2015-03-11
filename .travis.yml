@@ -23,3 +23,7 @@ script:
 
 before_script:
   - cp config/database.travis.yml config/database.yml
+
+addons:
+  code_climate:
+    repo_token: c692d3456e17137a73cc36de50f26a828f1b9a5027cad4163f8c5fab4104d578
