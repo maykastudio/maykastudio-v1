@@ -11,6 +11,7 @@ group :default do
   gem 'devise'
   gem 'dropzonejs-rails'
   gem 'enumerize'
+  gem 'fog'
   gem 'friendly_id',                   '~> 5.1.0'
   gem 'gravtastic'
   gem 'inherited_resources',           '~> 1.6.0'
