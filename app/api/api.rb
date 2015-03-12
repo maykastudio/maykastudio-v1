@@ -3,6 +3,6 @@ class Api < Grape::API
   prefix :api
 
   get :ping do
-    'pong'
+    { :pong => 'ok' }
   end
 end
