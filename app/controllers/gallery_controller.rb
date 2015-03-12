@@ -1,9 +1,16 @@
 class GalleryController < ApplicationController
-  def index
-    @collection = Gallery.published
-  end
+  inherit_resources
+  actions :index, :show
 
   def show
-    @gallery = Gallery.find(params[:id])
+    show!
+
+    fresh_when @gallery and return
+  end
+
+  private
+
+  def collection
+    @collection = Gallery.published
   end
 end
