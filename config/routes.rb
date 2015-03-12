@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Api => '/'
+
   devise_for :users
 
   namespace :manage do

@@ -13,6 +13,7 @@ group :default do
   gem 'enumerize'
   gem 'fog'
   gem 'friendly_id',                   '~> 5.1.0'
+  gem 'grape'
   gem 'gravtastic'
   gem 'inherited_resources',           '~> 1.6.0'
   gem 'jquery-rails'
